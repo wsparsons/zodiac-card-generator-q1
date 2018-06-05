@@ -1,0 +1,28 @@
+* {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 40px;
+  width: 90%;
+}
+
+h1.banner {
+  font-size: 400%
+}
+
+figcaption.figure-caption {
+  font-size: 125%;
+}
+
+.chinese-banner {
+  background-color: #721817;
+  color: #FA9F42;
+  padding: 15px;
+}
+
+
+figure img:hover {
+  transform: scale(1.25);
+}
