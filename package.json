@@ -1,7 +1,7 @@
 {
   "name": "zodiac-game-q1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quarter 1 project for finding out if your personality traits matches with your Chinese zodiac",
   "main": "index.js",
   "scripts": {
     "build": "browserify scripts/main.js -o bundle.js",
