@@ -1,14 +1,7 @@
 const zodiac = require('./data')
 
-// form variables
-const zodiacInputForm = document.querySelector('#zodiacInputForm')
-
 // input variables
-const zodiacSignValue = document.querySelector('#zodiacSignValue')
 const birthYearInput = document.querySelector('#birthYearInput')
-
-// output variables
-const zodiacAnimalName = document.querySelector('#zodiacAnimalName')
 
 // card variables
 const animalCard = document.querySelector('#animalCard')
@@ -26,9 +19,9 @@ const averageMatch = document.querySelector('#averageMatch')
 const noMatch = document.querySelector('#noMatch')
 
 
-const generateCard = (birthpet) => {
+const generateCard = pet => {
 
-  const zodiacData = zodiac.find(element => element.animal === birthpet)
+  const zodiacData = zodiac.find(element => element.animal === pet)
 
   animalCard.classList.remove('d-none')
 

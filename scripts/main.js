@@ -13,3 +13,10 @@ zodiacInputForm.addEventListener('reset', generate.clearCard)
 figureImgs.forEach(animal => {
   animal.addEventListener('click', generate.clickAnimalCard)
 })
+
+// adds zodiac sign to local storage
+const zodiacInfo = JSON.parse(localStorage.getItem('zodiac-sign'))
+
+if(zodiacInfo){
+  document.querySelector('#welcome').textContent = `Welcome Back, ${zodiacInfo.pet}!`
+}
