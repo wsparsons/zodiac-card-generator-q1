@@ -129,14 +129,6 @@
                 <button type="submit" value="Submit">Submit Birth Year</button>
                 <button type="reset" value="Reset">Clear Birth Year</button>
               </div>
-              <div>
-                <p id="zodiacAnimalName"></p>
-              </div>  
-              <!-- <div class="form-group">
-                <label for="zodiacSign">Your Chinese Zodiac Sign is:</label>
-                <input type="text" id="zodiacSignValue">
-                <input type="submit" value="Submit Zodiac Sign">
-              </div> -->
             </form>
 
           </div>
@@ -145,30 +137,41 @@
     </section>
 
     <section class="sign-table">
-      <div class="cotainer">
+      <div class="cotainer text-center">
         <div class="row">
           <div class="col">
-
+            <h2 id="zodiacAnimalName"></h2>
           </div>
         </div>
       </div>
     </section>
 
-    <br>
-
-    <!-- <section class="chinese-traits-grid text-center">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col">
-            <h3>Let's Find Out If Your Personality Traits Matches with Your Chinese Zodiac Traits</h3>
-            <p>Select 5 out of the 20 traits that best describe you</p>
+    <section>
+      <div class="container-fluid align-items-center">
+        <div class="row justify-content-center">
+          <div class="col-10 col-md-5">
+            <div class="card border border-secondary rounded d-none" id="animalCard">
+              <img class="card-img-top" id="img">
+              <div class="card-body">
+                <h5 class="card-title font-weight-bold">Zodiac Sign: <span id="title"></span></h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><span class="font-weight-bold">Ying-Yang Sign: </span><span id="yinYang"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Season: </span><span id="season"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Element: </span><span id="element"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Years: </span><span id="years"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Lucky Colors: </span><span id="colors"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Lucky Numbers: </span><span id="numbers"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Personality Traits: </span><span id="traits"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Best Match: </span><span id="bestMatch"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">Average Match: </span><span id="averageMatch"></span></li>
+                <li class="list-group-item"><span class="font-weight-bold">No Match: </span><span id="noMatch"></span></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="row">
-
-        </div>
       </div>
-    </section> -->
+    </section>
 
   </div>
 </body>

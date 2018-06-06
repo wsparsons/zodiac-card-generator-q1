@@ -10,9 +10,22 @@ const birthYearInput = document.querySelector('#birthYearInput')
 // output variables
 const zodiacAnimalName = document.querySelector('#zodiacAnimalName')
 
+// card variables
+const image = document.querySelector('#img')
+const title = document.querySelector('#title')
+const yinYang = document.querySelector('#yinYang')
+const season = document.querySelector('#season')
+const element = document.querySelector('#element')
+const years = document.querySelector('#years')
+const colors = document.querySelector('#colors')
+const numbers = document.querySelector('#numbers')
+const traits = document.querySelector('#traits')
+const bestMatch = document.querySelector('#bestMatch')
+const averageMatch = document.querySelector('#averageMatch')
+const noMatch = document.querySelector('#noMatch')
 
-// event listner function 
-const generateSign = (event) => {
+// event listener function
+const generateCard = (event) => {
 
   event.preventDefault()
 
@@ -37,7 +50,7 @@ const generateSign = (event) => {
     birthpet = zodiac[4].animal;
   }
   if (x == -5 || x == 7){
-    birthpet = zodiac[50].animal;
+    birthpet = zodiac[5].animal;
   }
   if (x == -6 || x == 6){
     birthpet = zodiac[6].animal;
@@ -59,9 +72,36 @@ const generateSign = (event) => {
   }
 
   zodiacAnimalName.innerHTML = `Your Zodiac Sign is: ${birthpet}`
+
+  const zodiacData = zodiac.find(element => element.animal === birthpet)
+
+  document.querySelector('#animalCard').classList.remove('d-none')
+
+  image.setAttribute('src', zodiacData.src )
+  image.setAttribute('alt', zodiacData.animal)
+  title.innerText = zodiacData.animal
+  yinYang.innerText = zodiacData.yin_yang
+  season.innerText = zodiacData.season
+  element.innerText = zodiacData.element
+  years.innerText = zodiacData.years
+  colors.innerText = zodiacData.lucky_colors
+  numbers.innerText = zodiacData.lucky_numbers
+  traits.innerText = zodiacData.personality_traits
+  bestMatch.innerText = zodiacData.best_match
+  averageMatch.innerText = zodiacData.average_match
+  noMatch.innerText = zodiacData.no_match
 }
 
-module.exports = generateSign
+const clearCard = event => {
+  event.preventDefault()
+
+  zodiacAnimalName.innerHTML = ''
+  document.querySelector('#animalCard').classList.add('d-none')
+}
+
+module.exports = {
+  generateCard, clearCard
+}
 
 
 
