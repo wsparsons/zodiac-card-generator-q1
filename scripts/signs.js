@@ -1,4 +1,5 @@
 const zodiac = require('./data')
+const generateCard = require('./template')
 
 // form variables
 const zodiacInputForm = document.querySelector('#zodiacInputForm')
@@ -11,6 +12,7 @@ const birthYearInput = document.querySelector('#birthYearInput')
 const zodiacAnimalName = document.querySelector('#zodiacAnimalName')
 
 // card variables
+const animalCard = document.querySelector('#animalCard')
 const image = document.querySelector('#img')
 const title = document.querySelector('#title')
 const yinYang = document.querySelector('#yinYang')
@@ -25,8 +27,15 @@ const averageMatch = document.querySelector('#averageMatch')
 const noMatch = document.querySelector('#noMatch')
 
 // event listener function
-const generateCard = (event) => {
 
+const clickAnimalCard = event => {
+  event.preventDefault()
+  const clickAnimal = event.target.alt
+  generateCard(clickAnimal)
+
+}
+
+const generateAnimal = event => {
   event.preventDefault()
 
   const start = 1900
@@ -73,34 +82,20 @@ const generateCard = (event) => {
 
   zodiacAnimalName.innerHTML = `Your Zodiac Sign is: ${birthpet}`
 
-  const zodiacData = zodiac.find(element => element.animal === birthpet)
-
-  document.querySelector('#animalCard').classList.remove('d-none')
-
-  image.setAttribute('src', zodiacData.src )
-  image.setAttribute('alt', zodiacData.animal)
-  title.innerText = zodiacData.animal
-  yinYang.innerText = zodiacData.yin_yang
-  season.innerText = zodiacData.season
-  element.innerText = zodiacData.element
-  years.innerText = zodiacData.years
-  colors.innerText = zodiacData.lucky_colors
-  numbers.innerText = zodiacData.lucky_numbers
-  traits.innerText = zodiacData.personality_traits
-  bestMatch.innerText = zodiacData.best_match
-  averageMatch.innerText = zodiacData.average_match
-  noMatch.innerText = zodiacData.no_match
+  generateCard(birthpet)
 }
 
 const clearCard = event => {
   event.preventDefault()
 
+  birthYearInput.value = ''
   zodiacAnimalName.innerHTML = ''
-  document.querySelector('#animalCard').classList.add('d-none')
+  animalCard.classList.add('d-none')
+  document.querySelector('.chinese-banner').scrollIntoView({behavior: 'smooth'})
 }
 
 module.exports = {
-  generateCard, clearCard
+  clickAnimalCard, generateAnimal, clearCard
 }
 
 

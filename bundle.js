@@ -173,7 +173,7 @@ const zodiac = [{
     "element": "Metal",
     "years": "1909, 1921, 1933, 1945, 1957, 1969, 1981, 1993, 2005, 2017, 2029, 2041",
     "lucky_colors": "gold, brown, yellow",
-    "lucky_numbers": "5, 7, 8;",
+    "lucky_numbers": "5, 7, 8",
     "personality_traits": "independent, practical, hard-working, and observant",
     "best_match": "Rooster, Snake, Ox",
     "average_match": "Dragon, Monkey, Rat, Dog, Tiger, Horse, Pig, Goat",
@@ -222,22 +222,23 @@ module.exports = zodiac
 },{}],2:[function(require,module,exports){
 const zodiac = require('./data')
 const generate = require('./signs')
-const clear = require('./signs')
-// const zodiacAnimalTemplate = require('./template')
 
 
-// forms variables
+const figureImgs = Array.from(document.querySelectorAll('.figure-img'))
 const zodiacInputForm = document.querySelector('#zodiacInputForm')
-
 
 
 // event listners
 
-zodiacInputForm.addEventListener('submit', generate.generateCard)
-zodiacInputForm.addEventListener('reset', clear.clearCard)
+zodiacInputForm.addEventListener('submit', generate.generateAnimal)
+zodiacInputForm.addEventListener('reset', generate.clearCard)
+figureImgs.forEach(animal => {
+  animal.addEventListener('click', generate.clickAnimalCard)
+})
 
 },{"./data":1,"./signs":3}],3:[function(require,module,exports){
 const zodiac = require('./data')
+const generateCard = require('./template')
 
 // form variables
 const zodiacInputForm = document.querySelector('#zodiacInputForm')
@@ -250,6 +251,7 @@ const birthYearInput = document.querySelector('#birthYearInput')
 const zodiacAnimalName = document.querySelector('#zodiacAnimalName')
 
 // card variables
+const animalCard = document.querySelector('#animalCard')
 const image = document.querySelector('#img')
 const title = document.querySelector('#title')
 const yinYang = document.querySelector('#yinYang')
@@ -264,8 +266,15 @@ const averageMatch = document.querySelector('#averageMatch')
 const noMatch = document.querySelector('#noMatch')
 
 // event listener function
-const generateCard = (event) => {
 
+const clickAnimalCard = event => {
+  event.preventDefault()
+  const clickAnimal = event.target.alt
+  generateCard(clickAnimal)
+
+}
+
+const generateAnimal = event => {
   event.preventDefault()
 
   const start = 1900
@@ -312,34 +321,20 @@ const generateCard = (event) => {
 
   zodiacAnimalName.innerHTML = `Your Zodiac Sign is: ${birthpet}`
 
-  const zodiacData = zodiac.find(element => element.animal === birthpet)
-
-  document.querySelector('#animalCard').classList.remove('d-none')
-
-  image.setAttribute('src', zodiacData.src )
-  image.setAttribute('alt', zodiacData.animal)
-  title.innerText = zodiacData.animal
-  yinYang.innerText = zodiacData.yin_yang
-  season.innerText = zodiacData.season
-  element.innerText = zodiacData.element
-  years.innerText = zodiacData.years
-  colors.innerText = zodiacData.lucky_colors
-  numbers.innerText = zodiacData.lucky_numbers
-  traits.innerText = zodiacData.personality_traits
-  bestMatch.innerText = zodiacData.best_match
-  averageMatch.innerText = zodiacData.average_match
-  noMatch.innerText = zodiacData.no_match
+  generateCard(birthpet)
 }
 
 const clearCard = event => {
   event.preventDefault()
 
+  birthYearInput.value = ''
   zodiacAnimalName.innerHTML = ''
-  document.querySelector('#animalCard').classList.add('d-none')
+  animalCard.classList.add('d-none')
+  document.querySelector('.chinese-banner').scrollIntoView({behavior: 'smooth'})
 }
 
 module.exports = {
-  generateCard, clearCard
+  clickAnimalCard, generateAnimal, clearCard
 }
 
 
@@ -354,5 +349,85 @@ module.exports = {
 //     }
 //   }
 // }
+
+},{"./data":1,"./template":4}],4:[function(require,module,exports){
+const zodiac = require('./data')
+
+// form variables
+const zodiacInputForm = document.querySelector('#zodiacInputForm')
+
+// input variables
+const zodiacSignValue = document.querySelector('#zodiacSignValue')
+const birthYearInput = document.querySelector('#birthYearInput')
+
+// output variables
+const zodiacAnimalName = document.querySelector('#zodiacAnimalName')
+
+// card variables
+const animalCard = document.querySelector('#animalCard')
+const image = document.querySelector('#img')
+const title = document.querySelector('#title')
+const yinYang = document.querySelector('#yinYang')
+const season = document.querySelector('#season')
+const element = document.querySelector('#element')
+const years = document.querySelector('#years')
+const colors = document.querySelector('#colors')
+const numbers = document.querySelector('#numbers')
+const traits = document.querySelector('#traits')
+const bestMatch = document.querySelector('#bestMatch')
+const averageMatch = document.querySelector('#averageMatch')
+const noMatch = document.querySelector('#noMatch')
+
+
+const generateCard = (birthpet) => {
+
+  const zodiacData = zodiac.find(element => element.animal === birthpet)
+
+  animalCard.classList.remove('d-none')
+
+  image.setAttribute('src', zodiacData.src)
+  image.setAttribute('alt', zodiacData.animal)
+  title.innerText = zodiacData.animal
+  yinYang.innerText = zodiacData.yin_yang
+  season.innerText = zodiacData.season
+  element.innerText = zodiacData.element
+  years.innerText = zodiacData.years
+  colors.innerText = zodiacData.lucky_colors
+  numbers.innerText = zodiacData.lucky_numbers
+  traits.innerText = zodiacData.personality_traits
+  bestMatch.innerText = zodiacData.best_match
+  averageMatch.innerText = zodiacData.average_match
+  noMatch.innerText = zodiacData.no_match
+
+  birthYearInput.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  })
+}
+
+// const zodiacAnimalTemplate = (event) => {
+//   event.preventDefault()
+//
+//   for (let i = 0; i < zodiac.length; i++){
+//       if (zodiac[i].animal === animal) {
+//       return `
+//       <div class="card border border-secondary rounded" style="width: 30rem">
+//         <img class="card-img-top" src="./img/rat.webp" alt="${zodiac[i].animal}">
+//         <div class="card-body">
+//           <h5 class="card-title">${zodiac[i].animal}</h5>
+//           <p class="card-text">Some text about the zodiac animal</p>
+//         </div>
+//         <ul class="list-group list-group-flush">
+//           <li class="list-group-item">Ying Yang Sign:</span> ${zodiac[i].yin_yang}</li>
+//           <li class="list-group-item">Season:</span> ${zodiac[i].season}</li>
+//           <li class="list-group-item">Element:</span> ${zodiac[i].element}</li>
+//           <li class="list-group-item">Years:</span> ${zodiac[i].years}</li>
+//           <li class="list-group-item">Lucky Colors:</span> ${zodiac[i].lucky_color}</li>
+//         </ul>
+//       </div>
+//       `
+//   }
+
+module.exports = generateCard
 
 },{"./data":1}]},{},[2]);

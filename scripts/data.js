@@ -172,7 +172,7 @@ const zodiac = [{
     "element": "Metal",
     "years": "1909, 1921, 1933, 1945, 1957, 1969, 1981, 1993, 2005, 2017, 2029, 2041",
     "lucky_colors": "gold, brown, yellow",
-    "lucky_numbers": "5, 7, 8;",
+    "lucky_numbers": "5, 7, 8",
     "personality_traits": "independent, practical, hard-working, and observant",
     "best_match": "Rooster, Snake, Ox",
     "average_match": "Dragon, Monkey, Rat, Dog, Tiger, Horse, Pig, Goat",
