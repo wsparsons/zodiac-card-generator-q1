@@ -16,7 +16,6 @@ const animalCard = document.querySelector('#animalCard')
 const cardContainer = document.querySelector('.card-container')
 
 
-// event listener functions
 // generate card when image is clicked
 function clickAnimalCard(event){
   event.preventDefault()
@@ -35,9 +34,8 @@ function clickAnimalCard(event){
 
 
 
-// generate card when enter year for mine
-function generateMyAnimal(event){
-  // if(event) event.preventDefault()
+// generate card when enter year for mine and saves animal to local storage
+function generateMyAnimal(){
 
   let myBirthYear = myYear.value
   let myCalendarYear = myBirthYear % 12
@@ -47,10 +45,6 @@ function generateMyAnimal(event){
     if (animal.number === myCalendarYear)
     myBirthPet = animal.animal
   })
-
-  // if (cardContainer.innerHTML.includes('animalCard')){
-  //   cardContainer.innerHTML = ''
-  // }
 
   cardContainer.innerHTML += generateCard(myBirthPet)
 
@@ -64,8 +58,7 @@ function generateMyAnimal(event){
 
 
 // generate card when enter year for partner
-function generatePartnerAnimal(event){
-  // event.preventDefault()
+function generatePartnerAnimal(){
 
   let partnerBirthYear = partnerYear.value
   let partnerCalendarYear = partnerBirthYear % 12
@@ -76,16 +69,6 @@ function generatePartnerAnimal(event){
     partnerBirthPet = animal.animal
   })
 
-  // if (cardContainer.innerHTML.includes('animalCard')){
-  //   cardContainer.innerHTML = ''
-  // }
-
-  // generateMyAnimal()
-
-  // if(myYear.value){
-  //   generateMyAnimal()
-  // }
-
   cardContainer.innerHTML += generateCard(partnerBirthPet)
 
   subtitle.scrollIntoView({
@@ -94,7 +77,7 @@ function generatePartnerAnimal(event){
   })
 }
 
-
+// renders both myAnimal and partnerAnimal when form is submitted
 function generateBothAnimals(event){
   event.preventDefault()
   cardContainer.innerHTML = ''
@@ -108,7 +91,7 @@ function generateBothAnimals(event){
 }
 
 
-//clears clickAnimalCard, myCard, and partnerCard
+//clears clickAnimalCard, myCard, partnerCard, and removes object from local storage
 function clearCard(event){
   event.preventDefault()
   myYear.value = ''
@@ -118,7 +101,7 @@ function clearCard(event){
   banner.scrollIntoView({
     behavior: 'smooth'
   })
-  
+
   localStorage.removeItem('zodiac-sign')
 }
 

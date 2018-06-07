@@ -18,10 +18,6 @@ partnerForm.addEventListener('submit', generate.generateBothAnimals)
 myForm.addEventListener('reset', generate.clearCard)
 
 
-// myForm.addEventListener('submit', generate.generateMyAnimal)
-// partnerForm.addEventListener('submit', generate.generatePartnerAnimal)
-
-
 figureImgs.forEach(animal => {
   animal.addEventListener('click', generate.clickAnimalCard)
 })
