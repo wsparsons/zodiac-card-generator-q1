@@ -5,9 +5,9 @@ const generateCard = birthpet => {
   const zodiacData = zodiac.find(element => element.animal === birthpet)
 
   return `
-  <div class = "col-8 col-lg-5">
-    <h2 class ="text-center">Zodiac Sign is: ${zodiacData.animal}</h2>
-    <div class="card border border-secondary rounded" id="animalCard">
+  <div class = "col-6 col-lg-5">
+    <div class="card rounded" id="animalCard">
+      <h2 class ="text-center">Zodiac Sign: ${zodiacData.animal}</h2>
       <img class="card-img-top" src="${zodiacData.src}" alt="${zodiacData.name}">
       <div>
         <h5 class="card-title"><span class="font-weight-bold">Zodiac Sign: </span>${zodiacData.animal}</h5>

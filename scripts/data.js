@@ -1,6 +1,6 @@
 const zodiac = [{
     "animal": "Rat",
-    "number": 0,
+    "number": 4,
     "emoji": "🐀",
     "src": "./img/rat.webp",
     "trine": "1st",
@@ -19,7 +19,7 @@ const zodiac = [{
   },
   {
     "animal": "Ox",
-    "number": 11,
+    "number": 5,
     "emoji": "🐂",
     "src": "./img/ox.webp",
     "trine": "2nd",
@@ -38,7 +38,7 @@ const zodiac = [{
   },
   {
     "animal": "Tiger",
-    "number": 10,
+    "number": 6,
     "emoji": "🐅",
     "src": "./img/tiger.webp",
     "trine": "3rd",
@@ -57,7 +57,7 @@ const zodiac = [{
   },
   {
     "animal": "Rabbit",
-    "number": 9,
+    "number": 7,
     "emoji": "🐇",
     "src": "./img/rabbit.webp",
     "trine": "4th",
@@ -95,7 +95,7 @@ const zodiac = [{
   },
   {
     "animal": "Snake",
-    "number": 7,
+    "number": 9,
     "emoji": "🐍",
     "src": "./img/snake.webp",
     "trine": "2nd",
@@ -114,7 +114,7 @@ const zodiac = [{
   },
   {
     "animal": "Horse",
-    "number": 6,
+    "number": 10,
     "emoji": "🐎",
     "src": "./img/horse.webp",
     "trine": "3rd",
@@ -133,7 +133,7 @@ const zodiac = [{
   },
   {
     "animal": "Goat",
-    "number": 5,
+    "number": 11,
     "emoji": "🐐",
     "src": "./img/goat.webp",
     "trine": "4th",
@@ -152,7 +152,7 @@ const zodiac = [{
   },
   {
     "animal": "Monkey",
-    "number": 4,
+    "number": 0,
     "emoji": "🐒",
     "src": "./img/monkey.webp",
     "trine": "1st",
@@ -171,7 +171,7 @@ const zodiac = [{
   },
   {
     "animal": "Rooster",
-    "number": 3,
+    "number": 1,
     "emoji": "🐓",
     "src": "./img/rooster.webp",
     "trine": "2nd",
@@ -209,7 +209,7 @@ const zodiac = [{
   },
   {
     "animal": "Pig",
-    "number": 1,
+    "number": 3,
     "emoji": "🐖",
     "src": "./img/pig.webp",
     "trine": "4th",
@@ -221,7 +221,7 @@ const zodiac = [{
     "years": "1911, 1923, 1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031, 2043",
     "lucky_colors": "yellow",
     "lucky_numbers": "2, 5, 6, 8",
-    "personality_traits": "",
+    "personality_traits": "loving, tolerant, honest, and appreciative of luxury",
     "best_match": "Pig, Rabbit, Goat",
     "average_match": "Dog, Tiger, Horse, Dragon, Monkey, Rat, Rooster, Ox",
     "no_match": "Snake"

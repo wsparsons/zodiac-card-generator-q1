@@ -1,7 +1,7 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const zodiac = [{
     "animal": "Rat",
-    "number": 0,
+    "number": 4,
     "emoji": "🐀",
     "src": "./img/rat.webp",
     "trine": "1st",
@@ -20,7 +20,7 @@ const zodiac = [{
   },
   {
     "animal": "Ox",
-    "number": 11,
+    "number": 5,
     "emoji": "🐂",
     "src": "./img/ox.webp",
     "trine": "2nd",
@@ -39,7 +39,7 @@ const zodiac = [{
   },
   {
     "animal": "Tiger",
-    "number": 10,
+    "number": 6,
     "emoji": "🐅",
     "src": "./img/tiger.webp",
     "trine": "3rd",
@@ -58,7 +58,7 @@ const zodiac = [{
   },
   {
     "animal": "Rabbit",
-    "number": 9,
+    "number": 7,
     "emoji": "🐇",
     "src": "./img/rabbit.webp",
     "trine": "4th",
@@ -96,7 +96,7 @@ const zodiac = [{
   },
   {
     "animal": "Snake",
-    "number": 7,
+    "number": 9,
     "emoji": "🐍",
     "src": "./img/snake.webp",
     "trine": "2nd",
@@ -115,7 +115,7 @@ const zodiac = [{
   },
   {
     "animal": "Horse",
-    "number": 6,
+    "number": 10,
     "emoji": "🐎",
     "src": "./img/horse.webp",
     "trine": "3rd",
@@ -134,7 +134,7 @@ const zodiac = [{
   },
   {
     "animal": "Goat",
-    "number": 5,
+    "number": 11,
     "emoji": "🐐",
     "src": "./img/goat.webp",
     "trine": "4th",
@@ -153,7 +153,7 @@ const zodiac = [{
   },
   {
     "animal": "Monkey",
-    "number": 4,
+    "number": 0,
     "emoji": "🐒",
     "src": "./img/monkey.webp",
     "trine": "1st",
@@ -172,7 +172,7 @@ const zodiac = [{
   },
   {
     "animal": "Rooster",
-    "number": 3,
+    "number": 1,
     "emoji": "🐓",
     "src": "./img/rooster.webp",
     "trine": "2nd",
@@ -210,7 +210,7 @@ const zodiac = [{
   },
   {
     "animal": "Pig",
-    "number": 1,
+    "number": 3,
     "emoji": "🐖",
     "src": "./img/pig.webp",
     "trine": "4th",
@@ -222,7 +222,7 @@ const zodiac = [{
     "years": "1911, 1923, 1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031, 2043",
     "lucky_colors": "yellow",
     "lucky_numbers": "2, 5, 6, 8",
-    "personality_traits": "",
+    "personality_traits": "loving, tolerant, honest, and appreciative of luxury",
     "best_match": "Pig, Rabbit, Goat",
     "average_match": "Dog, Tiger, Horse, Dragon, Monkey, Rat, Rooster, Ox",
     "no_match": "Snake"
@@ -237,18 +237,24 @@ const generate = require('./signs')
 
 
 const figureImgs = Array.from(document.querySelectorAll('.figure-img'))
-const zodiacInputForm1 = document.querySelector('#zodiacInputForm1')
-const zodiacInputForm2 = document.querySelector('#zodiacInputForm2')
+const myForm = document.querySelector('#myForm')
+const partnerForm = document.querySelector('#partnerForm')
+const myYear= document.querySelector('#myYear')
+const partnerYear= document.querySelector('#partnerYear')
 
 
 
 // event listners
 
-zodiacInputForm1.addEventListener('submit', generate.generateAnimal)
-zodiacInputForm1.addEventListener('reset', generate.clearCard)
 
-// zodiacInputForm2.addEventListener('submit', generate.generateAnimal2)
-// zodiacInputForm2.addEventListener('reset', generate.clearCard2)
+myForm.addEventListener('submit', generate.generateBothAnimals)
+partnerForm.addEventListener('submit', generate.generateBothAnimals)
+myForm.addEventListener('reset', generate.clearCard)
+
+
+// myForm.addEventListener('submit', generate.generateMyAnimal)
+// partnerForm.addEventListener('submit', generate.generatePartnerAnimal)
+
 
 figureImgs.forEach(animal => {
   animal.addEventListener('click', generate.clickAnimalCard)
@@ -266,33 +272,30 @@ const zodiac = require('./data')
 const generateCard = require('./template')
 
 
-// input variables
+// scrollIntoView variables and localStorage variable
 const banner = document.querySelector('.chinese-banner')
 const welcome = document.querySelector('#welcome')
-const birthYearInput= document.querySelector('.birthYearInput')
 const subtitle = document.querySelector('.subtitle')
 
-// output variables
-const zodiacAnimalName = document.querySelector('#zodiacAnimalName')
+// form input variables
+const myYear= document.querySelector('#myYear')
+const partnerYear= document.querySelector('#partnerYear')
 
 // card variables
 const animalCard = document.querySelector('#animalCard')
 const cardContainer = document.querySelector('.card-container')
 
 
-
 // event listener functions
 // generate card when image is clicked
 function clickAnimalCard(event){
   event.preventDefault()
-
   const clickAnimal = event.target.alt
-  // zodiacAnimalName.innerHTML = `Zodiac Sign is: ${clickAnimal}`
 
   if (cardContainer.innerHTML.includes('animalCard')){
     cardContainer.innerHTML = ''
   }
-  cardContainer.innerHTML += generateCard(clickAnimal)
+  cardContainer.innerHTML = generateCard(clickAnimal)
 
   subtitle.scrollIntoView({
     behavior: 'smooth',
@@ -300,28 +303,28 @@ function clickAnimalCard(event){
   })
 }
 
-// generate card when enter year
-function generateAnimal(event){
-  event.preventDefault()
 
-  let birthYear = birthYearInput.value
-  let calendarYear = birthYear % 12
-  let birthpet = ''
+
+// generate card when enter year for mine
+function generateMyAnimal(event){
+  // if(event) event.preventDefault()
+
+  let myBirthYear = myYear.value
+  let myCalendarYear = myBirthYear % 12
+  let myBirthPet = ''
 
   zodiac.filter(animal => {
-    if (animal.number === calendarYear)
-    birthpet = animal.animal
+    if (animal.number === myCalendarYear)
+    myBirthPet = animal.animal
   })
 
-  // zodiacAnimalName.innerHTML = `Zodiac Sign is: ${birthpet}`
+  // if (cardContainer.innerHTML.includes('animalCard')){
+  //   cardContainer.innerHTML = ''
+  // }
 
-  if (cardContainer.innerHTML.includes('animalCard')){
-    cardContainer.innerHTML = ''
-  }
+  cardContainer.innerHTML += generateCard(myBirthPet)
 
-  cardContainer.innerHTML += generateCard(birthpet)
-
-  localStorage.setItem('zodiac-sign', JSON.stringify({pet: birthpet, year: birthYear}))
+  localStorage.setItem('zodiac-sign', JSON.stringify({pet: myBirthPet, year: myCalendarYear}))
 
   subtitle.scrollIntoView({
     behavior: 'smooth',
@@ -329,24 +332,72 @@ function generateAnimal(event){
   })
 }
 
-//clear card when click clear button
+
+// generate card when enter year for partner
+function generatePartnerAnimal(event){
+  // event.preventDefault()
+
+  let partnerBirthYear = partnerYear.value
+  let partnerCalendarYear = partnerBirthYear % 12
+  let partnerBirthPet = ''
+
+  zodiac.filter(animal => {
+    if (animal.number === partnerCalendarYear)
+    partnerBirthPet = animal.animal
+  })
+
+  // if (cardContainer.innerHTML.includes('animalCard')){
+  //   cardContainer.innerHTML = ''
+  // }
+
+  // generateMyAnimal()
+
+  // if(myYear.value){
+  //   generateMyAnimal()
+  // }
+
+  cardContainer.innerHTML += generateCard(partnerBirthPet)
+
+  subtitle.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  })
+}
+
+
+function generateBothAnimals(event){
+  event.preventDefault()
+  cardContainer.innerHTML = ''
+
+  if(myYear.value){
+    generateMyAnimal()
+  }
+  if(partnerYear.value){
+    generatePartnerAnimal()
+  }
+}
+
+
+//clears clickAnimalCard, myCard, and partnerCard
 function clearCard(event){
   event.preventDefault()
-
-  birthYearInput.value = ''
-  // zodiacAnimalName.innerHTML = ''
-  document.querySelector('.card-container').innerHTML = ''
+  myYear.value = ''
+  partnerYear.value = ''
+  cardContainer.innerHTML = ''
 
   banner.scrollIntoView({
     behavior: 'smooth'
   })
+  
   localStorage.removeItem('zodiac-sign')
-
 }
+
 
 module.exports = {
   clickAnimalCard,
-  generateAnimal,
+  generateMyAnimal,
+  generatePartnerAnimal,
+  generateBothAnimals,
   clearCard
 }
 
@@ -358,9 +409,9 @@ const generateCard = birthpet => {
   const zodiacData = zodiac.find(element => element.animal === birthpet)
 
   return `
-  <div class = "col-8 col-lg-5">
-    <h2 class ="text-center">Zodiac Sign is: ${zodiacData.animal}</h2>
-    <div class="card border border-secondary rounded" id="animalCard">
+  <div class = "col-6 col-lg-5">
+    <div class="card rounded" id="animalCard">
+      <h2 class ="text-center">Zodiac Sign: ${zodiacData.animal}</h2>
       <img class="card-img-top" src="${zodiacData.src}" alt="${zodiacData.name}">
       <div>
         <h5 class="card-title"><span class="font-weight-bold">Zodiac Sign: </span>${zodiacData.animal}</h5>
