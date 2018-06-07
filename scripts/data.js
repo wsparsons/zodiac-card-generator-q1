@@ -1,5 +1,6 @@
 const zodiac = [{
     "animal": "Rat",
+    "number": 0,
     "emoji": "🐀",
     "src": "./img/rat.webp",
     "trine": "1st",
@@ -18,6 +19,7 @@ const zodiac = [{
   },
   {
     "animal": "Ox",
+    "number": 11,
     "emoji": "🐂",
     "src": "./img/ox.webp",
     "trine": "2nd",
@@ -36,6 +38,7 @@ const zodiac = [{
   },
   {
     "animal": "Tiger",
+    "number": 10,
     "emoji": "🐅",
     "src": "./img/tiger.webp",
     "trine": "3rd",
@@ -54,6 +57,7 @@ const zodiac = [{
   },
   {
     "animal": "Rabbit",
+    "number": 9,
     "emoji": "🐇",
     "src": "./img/rabbit.webp",
     "trine": "4th",
@@ -72,6 +76,7 @@ const zodiac = [{
   },
   {
     "animal": "Dragon",
+    "number": 8,
     "emoji": "🐉",
     "src": "./img/dragon.webp",
     "trine": "1st",
@@ -90,6 +95,7 @@ const zodiac = [{
   },
   {
     "animal": "Snake",
+    "number": 7,
     "emoji": "🐍",
     "src": "./img/snake.webp",
     "trine": "2nd",
@@ -108,6 +114,7 @@ const zodiac = [{
   },
   {
     "animal": "Horse",
+    "number": 6,
     "emoji": "🐎",
     "src": "./img/horse.webp",
     "trine": "3rd",
@@ -126,6 +133,7 @@ const zodiac = [{
   },
   {
     "animal": "Goat",
+    "number": 5,
     "emoji": "🐐",
     "src": "./img/goat.webp",
     "trine": "4th",
@@ -144,6 +152,7 @@ const zodiac = [{
   },
   {
     "animal": "Monkey",
+    "number": 4,
     "emoji": "🐒",
     "src": "./img/monkey.webp",
     "trine": "1st",
@@ -162,6 +171,7 @@ const zodiac = [{
   },
   {
     "animal": "Rooster",
+    "number": 3,
     "emoji": "🐓",
     "src": "./img/rooster.webp",
     "trine": "2nd",
@@ -180,6 +190,7 @@ const zodiac = [{
   },
   {
     "animal": "Dog",
+    "number": 2,
     "emoji": "🐕",
     "src": "./img/dog.webp",
     "trine": "3rd",
@@ -198,6 +209,7 @@ const zodiac = [{
   },
   {
     "animal": "Pig",
+    "number": 1,
     "emoji": "🐖",
     "src": "./img/pig.webp",
     "trine": "4th",

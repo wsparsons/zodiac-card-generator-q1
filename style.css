@@ -29,10 +29,11 @@ figure img:hover {
 }
 
 li.list-group-item {
-  padding: 4px 4px;
+  padding: 5px;
 }
-div.card-body {
-  padding: 4px 4px;
+h5.card-title {
+  padding: 5px;
+  margin: 0
 }
 
 button:hover {

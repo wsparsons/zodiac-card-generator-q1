@@ -3,13 +3,19 @@ const generate = require('./signs')
 
 
 const figureImgs = Array.from(document.querySelectorAll('.figure-img'))
-const zodiacInputForm = document.querySelector('#zodiacInputForm')
+const zodiacInputForm1 = document.querySelector('#zodiacInputForm1')
+const zodiacInputForm2 = document.querySelector('#zodiacInputForm2')
+
 
 
 // event listners
 
-zodiacInputForm.addEventListener('submit', generate.generateAnimal)
-zodiacInputForm.addEventListener('reset', generate.clearCard)
+zodiacInputForm1.addEventListener('submit', generate.generateAnimal)
+zodiacInputForm1.addEventListener('reset', generate.clearCard)
+
+// zodiacInputForm2.addEventListener('submit', generate.generateAnimal2)
+// zodiacInputForm2.addEventListener('reset', generate.clearCard2)
+
 figureImgs.forEach(animal => {
   animal.addEventListener('click', generate.clickAnimalCard)
 })

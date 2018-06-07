@@ -118,24 +118,33 @@
             <div class="subtitle">
               <p>Find your Chinese animal zodiac sign by entering in your birth year.</p>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <form id="zodiacInputForm">
+            <form id="zodiacInputForm1">
               <div class="form-group">
                 <label for="birthyear">Enter Your Birth Year:</label>
-                <input type="number" min="1" max="9999" id="birthYearInput" value="Birth Year" required>
-                <button type="submit" value="Submit">Submit Birth Year</button>
+                <input type="number" min="1" max="9999" class="birthYearInput" required>
+                <button type="submit" value="Submit">Submit</button>
                 <button type="reset" value="Reset">Clear</button>
               </div>
             </form>
           </div>
+          <!-- <div class="col">
+            <div class="subtitle">
+              <p>Find Partner's Chinese animal zodiac sign by entering in their birth year.</p>
+            </div>
+            <form id="zodiacInputForm2">
+              <div class="form-group">
+                <label for="birthyear">Enter Partner's Birth Year:</label>
+                <input type="number" min="1" max="9999" class="birthYearInput" required>
+                <button type="submit" value="Submit">Submit</button>
+                <button type="reset" value="Reset">Clear</button>
+              </div>
+            </form>
+          </div> -->
         </div>
       </div>
     </section>
 
-    <section class="sign-table">
+    <!-- <section class="sign-table">
       <div class="cotainer text-center">
         <div class="row">
           <div class="col">
@@ -143,31 +152,12 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section>
       <div class="container-fluid align-items-center">
-        <div class="row justify-content-center">
-          <div class="col-8 col-lg-5">
-            <div class="card border border-secondary rounded d-none" id="animalCard">
-              <img class="card-img-top" id="img">
-              <div class="card-body">
-                <h5 class="card-title"><span class="font-weight-bold">Zodiac Sign: </span><span id="title"></span></h5>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><span class="font-weight-bold">Ying-Yang Sign: </span><span id="yinYang"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Season: </span><span id="season"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Element: </span><span id="element"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Years: </span><span id="years"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Lucky Colors: </span><span id="colors"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Lucky Numbers: </span><span id="numbers"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Personality Traits: </span><span id="traits"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Best Match: </span><span id="bestMatch"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">Average Match: </span><span id="averageMatch"></span></li>
-                <li class="list-group-item"><span class="font-weight-bold">No Match: </span><span id="noMatch"></span></li>
-              </ul>
-            </div>
-          </div>
+        <div class="row justify-content-center card-container">
+
         </div>
       </div>
     </section>
