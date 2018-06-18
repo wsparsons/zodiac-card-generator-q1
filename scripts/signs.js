@@ -21,10 +21,10 @@ function clickAnimalCard(event){
   event.preventDefault()
   const clickAnimal = event.target.alt
 
-  if (cardContainer.innerHTML.includes('animalCard')){
+  // if (cardContainer.innerHTML.includes('animalCard')){
     cardContainer.innerHTML = ''
-  }
-  cardContainer.innerHTML = generateCard(clickAnimal)
+  // }
+  cardContainer.innerHTML += generateCard(clickAnimal)
 
   subtitle.scrollIntoView({
     behavior: 'smooth',
@@ -55,7 +55,6 @@ function generateMyAnimal(){
     block: 'start'
   })
 }
-
 
 // generate card when enter year for partner
 function generatePartnerAnimal(){
